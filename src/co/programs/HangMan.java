@@ -95,8 +95,17 @@ public class HangMan {
 		}
 	}
 	
-	private boolean isGameOver(String word) {
-		for(char n : word.toCharArray()) {
+	private List<Integer> getIndexes(List<Character> word, char letter) {
+		List<Integer> numList = new ArrayList<>();
+		for(int i = 0; i < word.size(); i++) {
+			if(word.get(i) == letter)
+				numList.add(i);
+		}
+		return numList;
+	}
+	
+	private boolean isGameOver(List<Character> word) {
+		for(char n : word) {
 			if(n == '-')
 				return false;
 		}
